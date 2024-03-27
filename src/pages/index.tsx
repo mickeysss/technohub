@@ -1,5 +1,5 @@
-// import { MainPage } from './MainPage/MainPage';
-// import { AboutPage } from './AboutPage';
-//
-//
-// export { MainPage, AboutPage }
+import { MainPage } from './MainPage/';
+import { AboutPage } from './AboutPage';
+
+
+export { MainPage, AboutPage }
