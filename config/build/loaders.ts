@@ -3,7 +3,12 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
 // ДЛЯ ЛОУДЕРОВ ВАЖЕН ПОРЯДОК ДОБАВЛЕНИЯ!!!
-export  function buildLoaders(options: BuildOptions): RuleSetRule[]{
+export function buildLoaders(options: BuildOptions): RuleSetRule[] {
+
+   const svgLoader = {
+     test: /\.svg$/,
+     use: ['@svgr/webpack'],
+   }
 
   // Если не используем тайпскрипт - нужен babel-loader
   const typescriptLoader = {
@@ -25,12 +30,24 @@ export  function buildLoaders(options: BuildOptions): RuleSetRule[]{
             }
           }
         },
-        "sass-loader",
+        'sass-loader',
+      ],
+  }
+
+  const fileLoader = {
+      test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+        },
       ],
     }
 
+
     return [
-      typescriptLoader,
-      cssLoader,
-    ]
+    typescriptLoader,
+    cssLoader,
+    svgLoader,
+    fileLoader
+  ]
 }
