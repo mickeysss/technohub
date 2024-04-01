@@ -3,7 +3,7 @@ import React from 'react';
 import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider';
 
-import { Navbar } from 'widgets/Navbar/ui/Navbar';
+import { Navbar, Sidebar } from 'widgets';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -15,7 +15,10 @@ const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar/>
-      <AppRouter />
+      <div className="content-page">
+        <Sidebar/>
+        <AppRouter/>
+      </div>
       <button onClick={toggleTheme}>TOGGLE</button>
     </div>
   );
