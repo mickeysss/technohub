@@ -1,5 +1,4 @@
-import { MainPage } from './MainPage/';
+import { MainPage } from './MainPage';
 import { AboutPage } from './AboutPage';
 
-
-export { MainPage, AboutPage }
+export { MainPage, AboutPage };
