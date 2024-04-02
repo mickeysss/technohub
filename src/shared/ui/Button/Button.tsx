@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import styles from './Button.module.scss'
+import styles from './Button.module.scss';
 
 export enum ThemeButton {
   CLEAR = 'clear'
@@ -14,19 +14,21 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<IButtonProps> = (props) => {
-  const {
-    className,
-    children,
-    theme,
-    ...rest
-  } = props
+    const {
+        className,
+        children,
+        theme,
+        ...rest
+    } = props;
 
-  return (
-    <button
-      className={classNames(styles.Button, {}, [className, styles[theme]])}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            type="button"
+            className={classNames(styles.Button, {}, [className, styles[theme]])}
+            {...rest}
+        >
+
+            {children}
+        </button>
+    );
 };
