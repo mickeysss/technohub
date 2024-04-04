@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider';
 
-import { Navbar, Sidebar } from 'widgets';
+import { Navbar, PageLoader, Sidebar } from 'widgets';
 import { Button } from 'shared/ui/Button/Button';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
+            <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
