@@ -8,7 +8,7 @@ import { Button } from 'shared/ui/Button/Button';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import '../../assets/styles/index.scss';
+import 'shared/assets/styles/index.scss';
 
 function App() {
     const { theme, toggleTheme } = useTheme();
