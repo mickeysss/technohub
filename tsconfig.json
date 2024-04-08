@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    // то куда компилируется сборка
     "outDir": "./dist/",
     // Подсвечивает все места где не указан тип однако это не означает что вовсе нельзя использовать
     "noImplicitAny": true,
-    "module": "esnext",
+    "module": "ESNext",
     // В какую спецификацию компилируем: для поддержки большинства браузеров
     "target": "es5",
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
+    // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
@@ -22,5 +22,10 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts", // Все TypeScript файлы в папке src и ее подпапках
+    "src/**/*.tsx", // Все TypeScriptX файлы в папке src и ее подпапках
+    "./config/jest/setupTests.ts"
+  ]
 }

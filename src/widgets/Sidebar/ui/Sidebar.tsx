@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ui';
-import { Button } from 'shared/ui/Button/Button';
-
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+
+import { Button } from 'shared/ui/Button/Button';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 
 import styles from './Sidebar.module.scss';
 
@@ -21,11 +22,18 @@ export function Sidebar({ className }: ISidebarProps) {
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
         >
-            <Button type="button" onClick={onToggle}>toggle</Button>
+            <Button
+                data-testid="sidebar-toggle"
+                type="button"
+                onClick={onToggle}
+            >
+                toggle
+            </Button>
             <div className={styles.switchers}>
-                <ThemeSwitcher />
+                <ThemeSwitcher className={styles.lang} />
                 <LangSwitcher className={styles.lang} />
             </div>
         </div>
